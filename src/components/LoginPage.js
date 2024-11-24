@@ -6,8 +6,8 @@ import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("durga@mail.com");
+  const [password, setPassword] = useState("durga123");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,9 +20,9 @@ const LoginPage = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data));
-      navigate("/jobfeed");
-      console.log(res);
-      console.log("login success");
+      return navigate("/jobfeed");
+      //console.log(res);
+      //console.log("login success");
     } catch (err) {
       setError(err.message);
       //console.log(err.message);
